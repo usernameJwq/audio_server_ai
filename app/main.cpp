@@ -1,6 +1,3 @@
 #include <iostream>
 
-int main(int, char **)
-{
-    std::cout << "Hello, from tts_server!\n";
-}
+int main(int, char**) { std::cout << "Hello, from tts_server!\n"; }

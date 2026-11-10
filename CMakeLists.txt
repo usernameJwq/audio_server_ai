@@ -7,7 +7,10 @@ project(tts_server VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(app)
-
 find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
+find_package(gtest CONFIG REQUIRED)
+
+add_subdirectory(app)
+add_subdirectory(src)
