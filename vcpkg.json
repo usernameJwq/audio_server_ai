@@ -3,8 +3,10 @@
     "version": "0.1.0",
     "dependencies": [
         "fmt",
+        "gtest",
         "nlohmann-json",
         "spdlog",
-        "gtest"
+        "ffmpeg",
+        "miniaudio"
     ]
 }

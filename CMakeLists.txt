@@ -12,5 +12,8 @@ find_package(nlohmann_json CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(gtest CONFIG REQUIRED)
 
+find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
+
 add_subdirectory(app)
 add_subdirectory(src)
+add_subdirectory(audio)
