@@ -8,8 +8,6 @@
 
 #include "miniaudio.h"
 
-#define MINIAUDIO_IMPLEMENTATION
-
 struct PlayBackResources {
     ma_audio_buffer buffer{};
     ma_sound sound{};
