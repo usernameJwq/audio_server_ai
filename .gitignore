@@ -47,3 +47,4 @@ vcpkg_installed
 build
 libs
 models
+logs/
