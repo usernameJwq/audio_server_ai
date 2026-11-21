@@ -1,4 +1,4 @@
-project(tts_base)
+project(audio_base)
 
 file(GLOB SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp

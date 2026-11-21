@@ -1,4 +1,4 @@
-project(tts_mini_audio)
+project(audio_mini_audio)
 
 file(GLOB SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
@@ -14,5 +14,5 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    tts_base
+    audio_base
 )

@@ -1,4 +1,4 @@
-project(tts_sherpa)
+project(sherpa_cpp)
 
 file(GLOB SOURCE_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
@@ -18,7 +18,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${SHERPA_INCLUDE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
-    tts_base
+    audio_base
     fmt::fmt
     ${SHERPA_INCLUDE_DIR}/lib/libsherpa-onnx-c-api.so
     ${SHERPA_INCLUDE_DIR}/lib/libonnxruntime.so

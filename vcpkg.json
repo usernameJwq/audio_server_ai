@@ -1,5 +1,5 @@
 {
-    "name": "tts-app",
+    "name": "audio-app",
     "version": "0.1.0",
     "dependencies": [
         "fmt",
@@ -7,6 +7,8 @@
         "nlohmann-json",
         "spdlog",
         "ffmpeg",
-        "miniaudio"
+        "miniaudio",
+        "cpp-httplib",
+        "nlohmann-json"
     ]
 }
