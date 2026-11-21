@@ -11,6 +11,10 @@ find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(gtest CONFIG REQUIRED)
+find_package(httplib CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
+find_package(yaml-cpp CONFIG REQUIRED)
+find_package(cxxopts CONFIG REQUIRED)
 
 find_path(MINIAUDIO_INCLUDE_DIRS "miniaudio.h")
 
