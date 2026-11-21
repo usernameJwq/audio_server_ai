@@ -9,6 +9,8 @@
         "ffmpeg",
         "miniaudio",
         "cpp-httplib",
-        "nlohmann-json"
+        "nlohmann-json",
+        "yaml-cpp",
+        "cxxopts"
     ]
 }
