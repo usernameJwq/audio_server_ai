@@ -42,7 +42,6 @@
 
 # custom ignore
 .vscode
-vcpkg
 vcpkg_installed
 build
 libs
