@@ -1,0 +1,7 @@
+server:
+  port: 8080
+model:
+  model_path: "./models/tts"
+  device: cpu
+log:
+  log_level: info
