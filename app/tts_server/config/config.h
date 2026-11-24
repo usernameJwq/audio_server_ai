@@ -5,13 +5,13 @@
 
 #include "convert.h"
 
-class config {
+class Config {
 public:
-    config();
-    ~config();
+    Config();
+    ~Config();
 
 public:
-    ConfigProperty load_config(const std::string& cfg_path);
+    static ConfigProperty load_config(const std::string& cfg_path);
 };
 
 #endif

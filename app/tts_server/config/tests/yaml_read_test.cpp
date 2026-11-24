@@ -6,15 +6,13 @@
 
 class YamlReadTest : public ::testing::Test {
 protected:
-    void SetUp() override { cfg_ = std::make_unique<config>(); }
-
-    std::unique_ptr<config> cfg_ = nullptr;
+    void SetUp() override {}
 };
 
 TEST_F(YamlReadTest, read_yaml) {
     std::string yaml_path = "./config.yaml";
 
-    auto property = cfg_->load_config(yaml_path);
+    auto property = Config::load_config(yaml_path);
 
     std::cout << "port: " << property.server.port << std::endl;
     std::cout << "model_path: " << property.model.model_path << std::endl;
