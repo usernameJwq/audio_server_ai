@@ -4,11 +4,11 @@
 
 #include "logs.h"
 
-config::config() {}
+Config::Config() {}
 
-config::~config() {}
+Config::~Config() {}
 
-ConfigProperty config::load_config(const std::string& cfg_path) {
+ConfigProperty Config::load_config(const std::string& cfg_path) {
     std::ifstream fin(cfg_path);
     if (!fin.is_open()) {
         LOG::error("open yaml file failed");
