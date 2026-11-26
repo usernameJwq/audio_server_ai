@@ -9,6 +9,7 @@ add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     tts_server
+	tts_config
 )
 
 add_subdirectory(server)
