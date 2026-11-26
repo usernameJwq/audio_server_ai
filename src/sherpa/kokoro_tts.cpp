@@ -72,14 +72,8 @@ void KokoroTTS::LoadModel(const std::string& model_path, const std::string& devi
     config.max_num_sentences = 1;
     config.silence_scale = 0.2f;
 
-    const SherpaOnnxOfflineTts* tts = SherpaOnnxCreateOfflineTts(&config);
-    if (tts == nullptr) {
+    tts_ = SherpaOnnxCreateOfflineTts(&config);
+    if (tts_ == nullptr) {
         throw std::runtime_error("Failed to create Kokoro TTS from " + model_path);
     }
-
-    if (tts_ != nullptr) {
-        SherpaOnnxDestroyOfflineTts(tts_);
-    }
-
-    tts_ = tts;
 }

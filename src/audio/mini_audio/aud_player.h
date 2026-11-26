@@ -3,6 +3,7 @@
 
 #include <mutex>
 #include <vector>
+#include <memory>
 
 #include "player.h"
 
@@ -38,11 +39,14 @@ public:
 
     void play(const std::vector<float>& samples, int sample_rate) override;
 
+    bool is_playing();
+
 private:
     static void check_result(ma_result result, const char* action);
 
 private:
     bool engine_initialized_;
+    bool playing_;
     std::mutex mutex_;
     ma_engine engine_;
 };

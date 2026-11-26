@@ -41,7 +41,9 @@ Server::~Server() {}
 void Server::run() {
     register_routes();
 
-    LOG::info("tts server start, port is {}", port_);
+    std::string msg = fmt::format("tts server start, port is {}", port_);
+    LOG::info(msg);
+    std::cout << msg << std::endl;
 
     const bool ret = server_.listen(KHost, port_);
     if (!ret) {
@@ -58,8 +60,13 @@ void Server::register_routes() {
 
     // 在线播放：同步合成 PCM，播放放到后台线程，接口立即返回
     server_.Post("/tts/play", [this](const httplib::Request& req, httplib::Response& res) {
-        TTSPlayRequest request;
         TTSJsonParseModel obj;
+        if (player_->is_playing()) {
+            obj.send_json(res, 500, TTSResponse{500, "busying", "audio is playing"});
+            return;
+        }
+
+        TTSPlayRequest request;
 
         try {
             request = nlohmann::json::parse(req.body).get<TTSPlayRequest>();

@@ -1,7 +1,7 @@
 server:
   port: 8080
 model:
-  model_path: "./models/tts"
+  model_path: "/mnt/f/cpp/audio_server_ai/models/kokoro-multi-lang-v1_1"
   device: cpu
 log:
   log_level: info
