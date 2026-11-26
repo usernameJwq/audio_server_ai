@@ -17,7 +17,7 @@ void MiniAudioPlayer::check_result(ma_result result, const char* action) {
     }
 }
 
-MiniAudioPlayer::MiniAudioPlayer() : engine_initialized_(false), engine_() {
+MiniAudioPlayer::MiniAudioPlayer() : engine_initialized_(false), playing_(false), engine_() {
     try {
         check_result(ma_engine_init(nullptr, &engine_), "initialize miniaudio engine");
         engine_initialized_ = true;
@@ -36,6 +36,10 @@ MiniAudioPlayer::~MiniAudioPlayer() {
     } catch (const std::exception& e) {
         LOG::error("Failed to uninitialize MiniAudioPlayer: {}", e.what());
     }
+
+    if (playing_) {
+        playing_ = false;
+    }
 }
 
 void MiniAudioPlayer::play(const std::vector<float>& samples, int sample_rate) {
@@ -53,6 +57,8 @@ void MiniAudioPlayer::play(const std::vector<float>& samples, int sample_rate) {
     }
 
     std::lock_guard<std::mutex> lock(mutex_);
+
+    playing_ = true;
 
     ma_audio_buffer_config config =
         ma_audio_buffer_config_init(ma_format_f32, 1, static_cast<ma_uint64>(samples.size()), samples.data(), nullptr);
@@ -91,7 +97,11 @@ void MiniAudioPlayer::play(const std::vector<float>& samples, int sample_rate) {
 
     LOG::debug("Playing {} samples at {} Hz", samples.size(), sample_rate);
 
-    while (ma_sound_is_playing(&resources.sound) && !ma_sound_at_end(&resources.sound)) {
+    while (ma_sound_is_playing(&resources.sound) || !ma_sound_at_end(&resources.sound)) {
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
+
+    playing_ = false;
 }
+
+bool MiniAudioPlayer::is_playing() { return playing_; }
